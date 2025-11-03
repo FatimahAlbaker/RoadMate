@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Mate - Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div style="margin: 0 35px;" class="container-fluid">
+            <a class="navbar-brand text-primary-custom" href="index.html">
+                <img src="logo.png" height="50" class="d-inline-block align-top me-2" alt="Road Mate Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-primary-custom" href="index.html#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary-custom" href="compaines.html">Towing Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary-custom" href="index.html#tracking">Live Tracking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary-custom" href="index.html#contact">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="d-flex ms-lg-3 mt-3 mt-lg-0">
+                    <a href="login.html" class="btn btn-outline-custom me-2">Login</a>
+                    <a href="signup.html" class="btn btn-primary-custom">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="signup-section d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-8 col-xl-7">
+                <div class="signup-card">
+                    <h2 class="text-center">Create Your Road Mate Account</h2>
+                    <p class="text-center text-muted mb-4">Join our platform as a customer or a towing partner.</p>
+
+                    <form action="#" method="POST">
+                        <div class="mb-4">
+                            <label class="form-label d-block text-center fw-bold">I am registering as a:</label>
+                            <div class="user-type-selector">
+                                <div class="form-check">
+                                    <input type="radio" class="btn-check" name="userType" id="typeCarOwner" value="CarOwner" autocomplete="off" checked onchange="toggleFields()">
+                                    <label class="btn btn-outline-custom" for="typeCarOwner">
+                                        <i class="fas fa-car me-2"></i> Car Owner
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="btn-check" name="userType" id="typeTowingCompany" value="TowingCompany" autocomplete="off" onchange="toggleFields()">
+                                    <label class="btn btn-outline-custom" for="typeTowingCompany">
+                                        <i class="fas fa-truck-monster me-2"></i> Towing Company
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                <input type="tel" class="form-control" id="phone" placeholder="+966 5x xxx xxxx" required>
+                            </div>
+                        </div>
+
+                        <div id="conditionalFields">
+                            <div id="carOwnerFields" class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                                </div>
+                            </div>
+
+                            <div id="companyFields" style="display: none;">
+                                <div class="mb-3">
+                                    <label for="companyName" class="form-label">Company Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-building"></i></span>
+                                        <input type="text" class="form-control" id="companyName" name="company_name" required >
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="crn" class="form-label">Commercial Registration Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                        <input type="text" class="form-control" id="crn" name="commercial_registration_number"  required >
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="logoUrl" class="form-label">Company Logo</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-image"></i></span>
+                                        <input type="file" class="form-control" id="logoUrl" name="logo_url"  required >
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Company Location (Click on the map to set)</label>
+                                    <div id="mapContainer"></div>
+
+                                    <input type="hidden" id="location_latitude" name="location_latitude" required disabled>
+                                    <input type="hidden" id="location_longitude" name="location_longitude" required disabled>
+
+                                    <div class="text-muted small mt-2">
+                                        Current Coordinates: <span id="coordsDisplay">Not Set</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid mb-4">
+                            <button type="submit" class="btn btn-primary-custom btn-lg">
+                                <i class="fas fa-user-plus me-2"></i> Register Account
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        Already have an account? <a href="login.html" class="text-primary-custom fw-medium text-decoration-none">Log In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-md-6">
+                <h3 class="mb-4">Road Mate</h3>
+                <p class="mb-4">Connecting car owners with reliable towing services across Jubail and Saudi Arabia.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class=" col-md-3">
+                <h5 class="mb-4">Quick Links</h5>
+                <ul class="list-unstyled footer-links">
+                    <li class="mb-2"><a href="index.html#home">Home</a></li>
+                    <li class="mb-2"><a href="index.html#features">Features</a></li>
+                    <li class="mb-2"><a href="index.html#tracking">Live Tracking</a></li>
+                    <li class="mb-2"><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class=" col-md-3">
+                <h5 class="mb-4">Contact Us</h5>
+                <ul class="list-unstyled footer-links">
+                    <li class="mb-3"><i class="fas fa-map-marker-alt me-2"></i> Jubail, Saudi Arabia</li>
+                    <li class="mb-3"><i class="fas fa-phone-alt me-2"></i> +966 123 456 789</li>
+                    <li class="mb-3"><i class="fas fa-envelope me-2"></i> info@roadmate.com</li>
+                </ul>
+            </div>
+        </div>
+        <hr class=" ">
+        <div class="text-center">
+            <p>&copy; 2025 Road Mate. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao&libraries=places&callback=loadMap"></script>
+
+<script>
+    let map;
+    let marker;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Run toggleFields on load to set initial state correctly
+        toggleFields();
+        // Since loadMap is set as a callback in the Google Maps script tag,
+        // it will be called automatically once the API is loaded.
+    });
+
+    /**
+     * Initializes the Google Map instance.
+     * This function is called automatically by the Google Maps script after loading.
+     */
+    function loadMap() {
+        const jubail = { lat: 27.0112, lng: 49.6582 }; // Default center (Jubail)
+
+        map = new google.maps.Map(document.getElementById('mapContainer'), {
+            center: jubail,
+            zoom: 12,
+        });
+
+        // Event listener for map clicks
+        map.addListener("click", (mapsMouseEvent) => {
+            const latLng = mapsMouseEvent.latLng;
+            updateMarker(latLng);
+        });
+
+        // Initialize a default marker
+        updateMarker(jubail);
+    }
+
+    /**
+     * Updates the marker position and hidden input fields.
+     * @param {google.maps.LatLng} latLng - The new position.
+     */
+    function updateMarker(latLng) {
+        if (!marker) {
+            marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                title: "Your Company Location",
+                draggable: true // Allow dragging to fine-tune location
+            });
+
+            // Update location on drag end
+            marker.addListener('dragend', (event) => {
+                updateCoordinates(event.latLng);
+            });
+        } else {
+            marker.setPosition(latLng);
+        }
+
+        updateCoordinates(latLng);
+    }
+
+    /**
+     * Updates the hidden coordinate fields and the display text.
+     * @param {google.maps.LatLng} latLng - The new position object.
+     */
+    function updateCoordinates(latLng) {
+        const lat = latLng.lat();
+        const lng = latLng.lng();
+
+        document.getElementById('location_latitude').value = lat;
+        document.getElementById('location_longitude').value = lng;
+        document.getElementById('coordsDisplay').textContent = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+    }
+
+
+    /**
+     * Toggles the visibility and 'required'/'disabled' status of fields
+     * based on the selected user type.
+     */
+    function toggleFields() {
+        const carOwnerFields = document.getElementById('carOwnerFields');
+        const companyFields = document.getElementById('companyFields');
+        const isCarOwner = document.getElementById('typeCarOwner').checked;
+
+        const carOwnerInputs = carOwnerFields.querySelectorAll('input');
+        // Select all required inputs within the company fields container (including hidden location fields)
+        const companyInputs = companyFields.querySelectorAll('input[required]');
+
+        if (isCarOwner) {
+            // Show Car Owner fields, hide Company fields
+            carOwnerFields.style.display = 'flex';
+            companyFields.style.display = 'none';
+
+            carOwnerInputs.forEach(input => {
+                input.required = true;
+                input.disabled = false;
+            });
+
+            companyInputs.forEach(input => {
+                input.required = false;
+                input.disabled = true;
+            });
+
+            // Optional: Remove marker if map is hidden
+            if (marker) marker.setMap(null);
+
+
+        } else {
+            // Show Company fields, hide Car Owner fields
+            carOwnerFields.style.display = 'none';
+            companyFields.style.display = 'block';
+
+            carOwnerInputs.forEach(input => {
+                input.required = false;
+                input.disabled = true;
+            });
+
+            companyInputs.forEach(input => {
+                input.required = true;
+                input.disabled = false;
+            });
+
+            // Optional: Add marker back if it was removed
+            if (marker && map) marker.setMap(map);
+        }
+    }
+</script>
+</body>
+</html>

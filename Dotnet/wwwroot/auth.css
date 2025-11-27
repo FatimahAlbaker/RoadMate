@@ -1,0 +1,158 @@
+﻿
+.signup-section,
+.login-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 100px 0 50px;
+}
+
+.signup-card,
+.login-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signup-card h2,
+.login-card h2 {
+    color: #003366;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.input-group-text {
+    background: #f8f9fa;
+    border-right: none;
+    color: #6c757d;
+}
+
+.form-control {
+    border-left: none;
+    padding: 0.75rem 1rem;
+}
+
+    .form-control:focus {
+        border-color: #003366;
+        box-shadow: 0 0 0 0.2rem rgba(0, 51, 102, 0.1);
+    }
+
+.input-group:focus-within .input-group-text {
+    border-color: #003366;
+    color: #003366;
+}
+
+.user-type-selector {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+    .user-type-selector .form-check {
+        flex: 1;
+        max-width: 200px;
+    }
+
+    .user-type-selector .btn-outline-custom {
+        border: 2px solid #003366;
+        color: #003366;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        width: 100%;
+        font-weight: 600;
+    }
+
+    .user-type-selector .btn-check:checked + .btn-outline-custom {
+        background: #003366;
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+    }
+
+    .user-type-selector .btn-outline-custom:hover {
+        background: #003366;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+.btn-primary-custom {
+    background: #FD7702;
+    border: none;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+    .btn-primary-custom:hover {
+        background: #e66a00;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(253, 119, 2, 0.3);
+    }
+
+.text-primary-custom {
+    color: #003366 !important;
+}
+
+    .text-primary-custom:hover {
+        color: #FD7702 !important;
+    }
+
+#mapContainer {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+.alert-danger {
+    background: #fee;
+    color: #c33;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.text-danger {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .signup-card,
+    .login-card {
+        padding: 2rem;
+    }
+
+    .user-type-selector {
+        flex-direction: column;
+    }
+
+        .user-type-selector .form-check {
+            max-width: 100%;
+        }
+}
